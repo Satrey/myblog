@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>This is an home page</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for post in object_list %}
+        <div class="container">
+            <div class="card p-3 mb-2 rounded shadow">
+                <h2 class="ps-3"><a class="card-title text-decoration-none" href="{% url 'detail' post.pk %}">{{ post.title }}</a></h2>
+                <hr>
+                <p class="card-body">{{ post.body }}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
