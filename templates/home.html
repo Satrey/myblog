@@ -9,7 +9,10 @@
                 <hr>
                 <p class="card-body">{{ post.body }}</p>
                 <hr>
-                <a class="btn btn-alert" href="{% url 'edit' post.pk %}">Редактировать</a>
+                <div class="container d-flex justify-content-between">
+                    <a class="btn btn-danger pe-3 ps-3"  href="{% url 'delete' post.pk %}">Удалить</a>
+                    <a class="btn btn-warning text-white" href="{% url 'edit' post.pk %}">Редактировать</a>
+                </div>
             </div>
         </div>
     {% endfor %}

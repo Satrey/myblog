@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <form action="" method="post">{% csrf_token %}
+        <div class="card p-2 shadow opacity-75">
+            <div class="card-title">
+                <h4 class="primary ps-5 pt-2 text-danger">Delete Post</h4>
+            </div>
+            <div class="card-body">
+                
+                    <p>Вы уверены, что хотите удалить этот пост?</p>
+                    <hr>
+                    <p>Пос № {{post.id}} : {{ post.title }}</p>
+                    <hr>
+                    <p>{{post.body}}</p>
+                
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <input class="btn btn-danger" type="submit" value="Удалить">
+                <a class="btn btn-secondary" href="{% url 'home' %}" >Отмена</a>
+            </div>
+        </div>
+    </form>
+    </div>
+{% endblock %}
